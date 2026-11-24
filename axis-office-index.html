@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123c2c">
+<title>Axis Office Gayrimenkul | Manisa</title>
+<style>
+:root{--green:#123c2c;--green2:#1d5a40;--gold:#c9a45c;--ink:#17231d;--muted:#68756d;--bg:#f5f6f2;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--green);color:#fff;padding:18px 18px 34px}
+.top{max-width:1080px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}.mark{width:42px;height:42px;border:2px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-size:23px}
+nav{display:flex;gap:16px;align-items:center}nav a{color:#fff;text-decoration:none;font-size:14px}
+.hero{max-width:1080px;margin:38px auto 0}.eyebrow{color:#e6c987;font-size:12px;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.08;margin:12px 0;max-width:700px}
+.hero p{color:#dce8df;max-width:610px;line-height:1.6}
+.search{margin-top:24px;background:#fff;border-radius:14px;padding:12px;display:flex;gap:8px;max-width:780px;box-shadow:0 12px 30px #061c1230}
+input,select,textarea{font:inherit;border:1px solid #d9e0da;border-radius:9px;padding:13px;background:#fff;color:var(--ink);min-width:0;width:100%}
+.search button,.btn{border:0;background:var(--gold);color:#17231d;font-weight:700;border-radius:9px;padding:13px 18px;cursor:pointer;white-space:nowrap}
+main{max-width:1080px;margin:28px auto;padding:0 16px}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:30px 0 16px}
+h2{margin:0;color:var(--green);font-size:25px}.sub{color:var(--muted);font-size:14px;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid #e4e9e3;border-radius:14px;padding:18px}
+.cat{font-size:12px;color:var(--green2);font-weight:bold;background:#eaf2ec;padding:6px 9px;border-radius:30px;display:inline-block}
+.card h3{margin:13px 0 7px;font-size:18px}.card p{color:var(--muted);font-size:14px;line-height:1.5;margin:0}
+.card button{margin-top:15px;width:100%;background:var(--green);color:#fff;border:0;border-radius:9px;padding:11px;font-weight:bold}
+.formwrap{background:#fff;border:1px solid #e4e9e3;border-radius:16px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.formwrap h2,.formwrap .wide{grid-column:1/-1}.formwrap textarea{min-height:90px;resize:vertical}
+.formwrap button{grid-column:1/-1;background:var(--green);color:#fff;border:0;border-radius:9px;padding:14px;font-weight:bold}
+.note{font-size:12px;color:var(--muted);line-height:1.5}
+.contact{background:#eaf0e9;border-radius:14px;padding:20px;margin:24px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.contact strong{color:var(--green);font-size:18px}
+footer{background:var(--green);color:#dce8df;padding:24px 16px;text-align:center;font-size:13px}
+@media(max-width:700px){nav{gap:9px}nav a{font-size:12px}.brand{font-size:16px}.search{flex-wrap:wrap}.search button{width:100%}.grid{grid-template-columns:1fr}.formwrap{grid-template-columns:1fr}.formwrap h2,.formwrap .wide{grid-column:auto}.contact{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand"><div class="mark">A</div><span>AXIS OFFICE<br><small style="font-size:10px;color:#e6c987;letter-spacing:2px">GAYRİMENKUL</small></span></div>
+  <nav><a href="#ilanlar">İlanlar</a><a href="#basvuru">İlan Ver</a><a href="#iletisim">İletişim</a></nav>
+ </div>
+ <section class="hero">
+  <div class="eyebrow">MANİSA • GAYRİMENKUL</div>
+  <h1>Doğru gayrimenkul,<br>doğru yatırım.</h1>
+  <p>Satılık ve kiralık daire, villa, iş yeri ve arsa seçenekleri için Axis Office Gayrimenkul ile iletişime geçin.</p>
+  <div class="search">
+   <select id="kind" aria-label="İlan türü"><option value="">Tüm ilan türleri</option><option>Satılık</option><option>Kiralık</option><option>Kat Karşılığı</option></select>
+   <select id="type" aria-label="Gayrimenkul türü"><option value="">Tüm kategoriler</option><option>Daire</option><option>Villa</option><option>Arsa</option><option>İş Yeri</option></select>
+   <button onclick="searchListings()">İlanları Ara</button>
+  </div>
+ </section>
+</header>
+<main>
+ <section id="ilanlar">
+  <div class="sectionhead"><div><h2>Gayrimenkul Kategorileri</h2><div class="sub">Aradığınız mülk türünü seçin.</div></div></div>
+  <div class="grid" id="cards">
+   <article class="card" data-kind="Satılık Kiralık" data-type="Daire"><span class="cat">KONUT</span><h3>Daire</h3><p>Satılık ve kiralık daire seçenekleri için bilgi alın.</p><button onclick="choose('Daire')">Daireleri incele</button></article>
+   <article class="card" data-kind="Satılık Kiralık" data-type="Villa"><span class="cat">KONUT</span><h3>Villa</h3><p>Müstakil yaşam ve yatırım amaçlı villa seçenekleri.</p><button onclick="choose('Villa')">Villaları incele</button></article>
+   <article class="card" data-kind="Satılık Kat Karşılığı" data-type="Arsa"><span class="cat">ARSA & PROJE</span><h3>Arsa</h3><p>Satılık arsa ve kat karşılığı proje fırsatları.</p><button onclick="choose('Arsa')">Arsaları incele</button></article>
+   <article class="card" data-kind="Satılık Kiralık" data-type="İş Yeri"><span class="cat">TİCARİ</span><h3>İş Yeri</h3><p>Dükkan, ofis ve ticari gayrimenkul seçenekleri.</p><button onclick="choose('İş Yeri')">İş yerlerini incele</button></article>
+   <article class="card" data-kind="Kat Karşılığı" data-type="Arsa"><span class="cat">PROJE GELİŞTİRME</span><h3>Kat Karşılığı</h3><p>Arsanız için proje ve müteahhitlik görüşmesi talep edin.</p><button onclick="choose('Kat Karşılığı arsa')">Başvuru yap</button></article>
+   <article class="card" data-kind="Satılık Kiralık" data-type="Hepsi"><span class="cat">DANIŞMANLIK</span><h3>Gayrimenkul Danışmanlığı</h3><p>Alım, satım ve kiralama sürecinde profesyonel destek.</p><button onclick="contactUs('Gayrimenkul danışmanlığı')">Bize ulaşın</button></article>
+  </div>
+ </section>
+ <section id="basvuru">
+  <div class="sectionhead"><div><h2>Gayrimenkulünüzü Bize Bildirin</h2><div class="sub">Bilgileri doldurun; başvurunuz WhatsApp üzerinden iletilsin.</div></div></div>
+  <form class="formwrap" onsubmit="sendLead(event)">
+   <input id="name" placeholder="Adınız soyadınız" required>
+   <input id="phone" placeholder="Telefon numaranız" required inputmode="tel">
+   <select id="request" required><option value="">Başvuru türü seçin</option><option>Satılık</option><option>Kiralık</option><option>Kat Karşılığı</option><option>Gayrimenkul arıyorum</option></select>
+   <select id="property"><option>Daire</option><option>Villa</option><option>Arsa</option><option>İş Yeri</option><option>Diğer</option></select>
+   <input id="district" placeholder="İlçe / Mahalle">
+   <input id="price" placeholder="Beklenen fiyat (isteğe bağlı)">
+   <textarea class="wide" id="details" placeholder="Gayrimenkul hakkında kısa bilgi (m², oda sayısı, ada/parsel vb.)"></textarea>
+   <button type="submit">WhatsApp ile Başvuru Gönder</button>
+   <div class="note wide">Bu form bilgileri kendi başına bir veritabanına kaydetmez; mesajınızı WhatsApp'ta hazırlar ve sizin gönder tuşuna basmanızı bekler.</div>
+  </form>
+ </section>
+ <section class="contact" id="iletisim">
+  <div><strong>Axis Office Gayrimenkul</strong><div class="sub">Manisa • Satılık • Kiralık • Arsa • Proje</div><div style="margin-top:8px">0535 317 00 45</div></div>
+  <a class="btn" style="text-decoration:none" href="https://wa.me/905353170045">WhatsApp'tan ulaşın</a>
+ </section>
+</main>
+<footer>© <span id="year"></span> Axis Office Gayrimenkul. Tüm hakları saklıdır.</footer>
+<script>
+const WA='905353170045';
+function sendLead(e){e.preventDefault();const v=id=>document.getElementById(id).value.trim();const msg=`Axis Office Gayrimenkul başvurusu\nAd Soyad: ${v('name')}\nTelefon: ${v('phone')}\nTalep: ${v('request')}\nGayrimenkul: ${v('property')}\nKonum: ${v('district')}\nFiyat: ${v('price')}\nDetay: ${v('details')}`;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank')}
+function contactUs(topic){window.open(`https://wa.me/${WA}?text=${encodeURIComponent('Merhaba, '+topic+' hakkında bilgi almak istiyorum.')}`,'_blank')}
+function choose(t){document.getElementById('type').value=t==='Kat Karşılığı arsa'?'Arsa':t;document.getElementById('basvuru').scrollIntoView({behavior:'smooth'})}
+function searchListings(){const k=document.getElementById('kind').value,t=document.getElementById('type').value;document.querySelectorAll('#cards .card').forEach(c=>{const okK=!k||c.dataset.kind.includes(k);const okT=!t||c.dataset.type===t||c.dataset.type==='Hepsi';c.style.display=okK&&okT?'block':'none'});document.getElementById('ilanlar').scrollIntoView({behavior:'smooth'})}
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
